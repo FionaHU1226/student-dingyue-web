@@ -1,26 +1,67 @@
 @import "tailwindcss";
 
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
+  --paper: #fcfbf7;
+  --ink: #0b1b3b;
+  --ink-muted: color-mix(in oklab, var(--ink), white 38%);
+  --navy: #0c1a5a;
+  --navy-2: #142a8a;
+  --blue-soft: #c8d7ff;
+  --blue-very-soft: #eaf0ff;
+  --card: #ffffff;
+  --ring: color-mix(in oklab, var(--navy), white 55%);
+  --shadow: 0 22px 60px rgba(12, 26, 90, 0.18);
 }
 
 @theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
+  --font-sans: var(--font-sans);
+  --font-mono: var(--font-mono);
+  --font-hand: var(--font-hand);
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
+html,
+body {
+  height: 100%;
 }
 
 body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  color: var(--ink);
+  font-family: var(--font-sans), ui-sans-serif, system-ui, -apple-system,
+    BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans",
+    "Apple Color Emoji", "Segoe UI Emoji";
+  background:
+    radial-gradient(900px 600px at 10% 10%, rgba(200, 215, 255, 0.65), transparent 60%),
+    radial-gradient(900px 600px at 90% 20%, rgba(234, 240, 255, 0.8), transparent 55%),
+    linear-gradient(180deg, var(--paper), #ffffff 60%, var(--paper));
+}
+
+/* light "fabric/paper" texture */
+.bg-paper-texture {
+  background-image:
+    radial-gradient(circle at 1px 1px, rgba(12, 26, 90, 0.06) 1px, transparent 0),
+    repeating-linear-gradient(
+      0deg,
+      rgba(12, 26, 90, 0.03),
+      rgba(12, 26, 90, 0.03) 1px,
+      transparent 1px,
+      transparent 9px
+    );
+  background-size: 18px 18px, 100% 10px;
+  background-position: 0 0, 0 0;
+}
+
+/* light gingham like the reference moodboard */
+.bg-gingham {
+  background-color: #eaf0ff;
+  background-image:
+    linear-gradient(90deg, rgba(12, 26, 90, 0.07) 50%, transparent 50%),
+    linear-gradient(0deg, rgba(12, 26, 90, 0.07) 50%, transparent 50%);
+  background-size: 22px 22px;
+}
+
+/* Utility: nicer focus ring */
+:where(a, button, input, textarea, select):focus-visible {
+  outline: 3px solid var(--ring);
+  outline-offset: 3px;
+  border-radius: 10px;
 }
