@@ -20,7 +20,7 @@ export const site = {
   highlights: [
     {
       label: "Education",
-      title: "NYU — Applied Psychology (M.A.)",
+      title: "NYU — Applied Psychology (B.S.)",
       detail: "GPA 3.872/4.00 • expected May 2027",
     },
     {
